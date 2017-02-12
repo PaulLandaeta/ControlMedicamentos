@@ -1,17 +1,16 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,Medicamentos) {
+.controller('DashCtrl', function($scope,Medicamentos,$ionicLoading) {
+
+    $ionicLoading.show({
+      template: 'Cargando...'
+    });
     $scope.medicamentos = Medicamentos;
    var ref = Medicamentos.database().ref('Medicamentos');
    ref.on("value", function(snapshot) {
-     // This isn't going to show up in the DOM immediately, because
-     // Angular does not know we have changed this in memory.
-     // $scope.data = snapshot.val();
-     // To fix this, we can use $scope.$apply() to notify Angular that a change occurred.
-     $scope.$apply(function() {
        $scope.data = snapshot.val();
-        console.log($scope.data);
-     });
+       console.log($scope.data);
+        $ionicLoading.hide();
    });
 
 

@@ -1,0 +1,40 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Nuevo Medicamento</h1>
+    <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <form ng-submit="agregarMedicamento()">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label" >Nombre Medicamento</span>
+          <input type="text" ng-model="medicamento.nombreMedicamento" placeholder="Nombre Medicamento">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Cantidad</span>
+          <input type="number"  ng-model="medicamento.cantidad" placeholder="Cantidad">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Costo Compra</span>
+          <input type="number" ng-model="medicamento.costoCompra"  placeholder="Costo Compra">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Costo Venta</span>
+          <input type="number" ng-model="medicamento.costoVenta"  placeholder="Costo Venta">
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Pais
+          </div>
+          <select ng-model="medicamento.pais">
+            <option>Peru</option>
+            <option>Argentina</option>
+            <option>Paraguay</option>
+          </select>
+        </label>
+      </div>
+      <button type="submit" class="button">
+        Agregar</button>
+    </form>
+  </ion-content>
+</ion-modal-view>

@@ -18,9 +18,15 @@
         <span class="input-label">Costo Venta</span>
         <input type="number" ng-model="medicamento.costoVenta"  placeholder="Costo Venta">
       </label>
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Pais</span>
-        <input type="text"  ng-model="medicamento.pais" placeholder="Pais">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Pais
+        </div>
+        <select ng-model="medicamento.pais">
+          <option>Peru</option>
+          <option>Argentina</option>
+          <option>Paraguay</option>
+        </select>
       </label>
     </div>
       <button type="submit" class="button">
