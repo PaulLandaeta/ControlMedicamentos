@@ -14,27 +14,22 @@
       template: 'Cargando...'
     });
     $scope.logger = logger;
-     var ref = logger.database().ref('Medicamentos');
+     var ref = logger.database().ref('Farmacia');
      ref.on("value", function(snapshot) {
          $scope.data = snapshot.val();
          console.log($scope.data);
           $ionicLoading.hide();
      });
-  console.log("asdasd");
      $scope.medicamento={};
-       $scope.writeMedicamento = function(name,costoCompra,costoVenta,pais,cantidad) {
-            firebase.database().ref('Medicamentos/'+name).set({
-              nombre: name,
-              costoCompra: costoCompra,
-              costoVenta: costoVenta,
-              pais: pais,
-              cantidad: cantidad
+       $scope.writeFarmacia = function(name,direccion) {
+            firebase.database().ref('Farmacia/'+name).set({
+              Nombre: name,
+              Direccion: direccion
             });
        }
-      $scope.agregarMedicamento = function(){
-      console.log($scope.medicamento.nombreMedicamento);
-         $scope.writeMedicamento($scope.medicamento.nombreMedicamento,$scope.medicamento.costoCompra,
-         $scope.medicamento.costoVenta,$scope.medicamento.pais,$scope.medicamento.cantidad);
+      $scope.agregarFarmacia = function(){
+      console.log($scope.medicamento.nombreFarmacia);
+         $scope.writeFarmacia($scope.medicamento.nombreFarmacia,$scope.medicamento.direccion);
          $scope.medicamento={};
       }
 
@@ -50,9 +45,5 @@
           console.log("Open Modal");
           $scope.modal.show();
        };
-       $scope.createContact = function(u) {
-         $scope.contacts.push({ name: u.firstName + ' ' + u.lastName });
-         $scope.modal.hide();
-      };
   }
 })();
